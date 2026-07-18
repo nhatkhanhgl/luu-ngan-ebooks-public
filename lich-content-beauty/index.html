@@ -1,0 +1,225 @@
+<style>
+  :root{
+    --bg:#FFFCFA; --bg-soft:#FBF1EC; --surface:#FFFFFF;
+    --ink:#3B2F35; --ink-soft:#8A7078; --line:#F1DEE3;
+    --rose:#C1748C; --blush:#EBB4C4; --lilac:#C3AEE0; --sage:#8FB08A; --butter:#E3B672;
+    --shadow:0 12px 34px rgba(170,115,135,.12);
+    --serif:"Iowan Old Style","Palatino Linotype","Book Antiqua",Georgia,serif;
+    --sans:system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",sans-serif;
+    --maxw:720px;
+  }
+  @media (prefers-color-scheme:dark){
+    :root{
+      --bg:#1C161A; --bg-soft:#241B22; --surface:#261D24;
+      --ink:#F4E9EE; --ink-soft:#C3A6B3; --line:#3A2B33;
+      --rose:#E8A6BB; --blush:#E3A2B8; --lilac:#CBB6EC; --sage:#A6C89F; --butter:#E6C085;
+      --shadow:0 14px 40px rgba(0,0,0,.45);
+    }
+  }
+  :root[data-theme="light"]{
+    --bg:#FFFCFA; --bg-soft:#FBF1EC; --surface:#FFFFFF; --ink:#3B2F35; --ink-soft:#8A7078; --line:#F1DEE3;
+    --rose:#C1748C; --blush:#EBB4C4; --lilac:#C3AEE0; --sage:#8FB08A; --butter:#E3B672; --shadow:0 12px 34px rgba(170,115,135,.12);
+  }
+  :root[data-theme="dark"]{
+    --bg:#1C161A; --bg-soft:#241B22; --surface:#261D24; --ink:#F4E9EE; --ink-soft:#C3A6B3; --line:#3A2B33;
+    --rose:#E8A6BB; --blush:#E3A2B8; --lilac:#CBB6EC; --sage:#A6C89F; --butter:#E6C085; --shadow:0 14px 40px rgba(0,0,0,.45);
+  }
+
+  *{box-sizing:border-box}
+  body{margin:0}
+  .wrap{ font-family:var(--sans); color:var(--ink);
+    background:radial-gradient(120% 55% at 50% -10%, color-mix(in srgb,var(--blush) 20%,transparent), transparent 60%), var(--bg);
+    min-height:100vh; padding:0 18px 60px; -webkit-font-smoothing:antialiased; }
+  .page{max-width:var(--maxw); margin:0 auto}
+
+  header{padding:52px 4px 22px; text-align:center}
+  .eyebrow{font-size:12px; letter-spacing:.26em; text-transform:uppercase; color:var(--rose); font-weight:600; margin:0 0 18px}
+  h1{font-family:var(--serif); font-weight:500; text-wrap:balance; font-size:clamp(32px,8vw,48px); line-height:1.1; margin:0 0 14px}
+  h1 em{font-style:italic; color:var(--rose)}
+  .lede{max-width:40ch; margin:0 auto; color:var(--ink-soft); font-size:15.5px; line-height:1.6}
+
+  .base{display:flex; gap:10px; justify-content:center; flex-wrap:wrap; margin:24px 0 4px}
+  .chip{display:inline-flex; align-items:center; gap:7px; background:var(--surface); border:1px solid var(--line); border-radius:999px; padding:9px 15px; font-size:13px; box-shadow:var(--shadow)}
+  .chip b{font-weight:600}
+
+  .divider{display:flex; align-items:center; gap:14px; color:var(--rose); margin:38px 0 8px}
+  .divider::before,.divider::after{content:""; height:1px; background:var(--line); flex:1}
+  .divider span{font-size:12px; letter-spacing:.22em; text-transform:uppercase; font-weight:600; white-space:nowrap}
+
+  /* timeline */
+  .tl{position:relative; margin:18px 0 0; padding-left:20px}
+  .tl::before{content:""; position:absolute; left:6px; top:8px; bottom:8px; width:2px; background:linear-gradient(var(--blush),var(--lilac),var(--sage))}
+  .m{position:relative; background:var(--surface); border:1px solid var(--line); border-radius:18px; padding:18px 18px 16px; margin:0 0 14px; box-shadow:var(--shadow)}
+  .m::before{content:""; position:absolute; left:-17px; top:22px; width:11px; height:11px; border-radius:50%; background:var(--accent); box-shadow:0 0 0 4px var(--bg)}
+  .m-top{display:flex; align-items:center; gap:10px; flex-wrap:wrap; margin-bottom:10px}
+  .m-no{font-family:var(--serif); font-weight:600; font-size:15px; color:var(--ink); background:color-mix(in srgb,var(--accent) 26%,var(--surface)); border-radius:8px; padding:3px 10px; white-space:nowrap}
+  .m-dip{font-family:var(--serif); font-size:19px; font-weight:500}
+  .m-now{margin-left:auto; font-size:10.5px; letter-spacing:.08em; text-transform:uppercase; font-weight:700; color:#fff; background:var(--rose); padding:4px 9px; border-radius:999px}
+  .m-rows{display:grid; gap:8px}
+  .row{display:grid; grid-template-columns:76px 1fr; gap:10px; align-items:start; font-size:13.5px; line-height:1.5}
+  .row .lbl{font-size:10.5px; letter-spacing:.1em; text-transform:uppercase; color:var(--rose); font-weight:600; padding-top:2px}
+  .row .val b{font-weight:600}
+
+  .rhythm{background:var(--surface); border:1px solid var(--line); border-radius:20px; padding:24px 20px; box-shadow:var(--shadow); margin-top:20px}
+  .rhythm h3{font-family:var(--serif); font-weight:500; font-size:22px; margin:0 0 6px}
+  .rhythm p.sub{color:var(--ink-soft); font-size:14px; margin:0 0 18px}
+  .weeks{display:grid; grid-template-columns:1fr 1fr; gap:12px}
+  .wk{background:var(--bg-soft); border-radius:14px; padding:14px 15px}
+  .wk .n{font-size:11px; letter-spacing:.1em; text-transform:uppercase; color:var(--rose); font-weight:700; margin:0 0 6px}
+  .wk p{margin:0; font-size:13.5px; line-height:1.5; color:var(--ink)}
+
+  footer{text-align:center; color:var(--ink-soft); font-size:12px; margin-top:30px; line-height:1.7}
+  footer .brand{font-family:var(--serif); font-size:15px; color:var(--ink); font-style:italic}
+
+  @media (max-width:440px){ .weeks{grid-template-columns:1fr} .row{grid-template-columns:70px 1fr} }
+  @media (prefers-reduced-motion:reduce){ *{transition:none!important} }
+</style>
+
+<div class="wrap">
+  <div class="page">
+
+    <header>
+      <p class="eyebrow">Lưu Ngân · Chụp Beauty · Gia Lai</p>
+      <h1>Kế hoạch nội dung <em>12 tháng</em></h1>
+      <p class="lede">Mỗi tháng một dịp để đăng bài &amp; chốt gấp. Concept nền bán quanh năm, concept dịp xoay theo lịch — không bao giờ bí nội dung.</p>
+      <div class="base">
+        <span class="chip">🌸 <b>Hoa thật</b> · ngôi sao</span>
+        <span class="chip">🌤️ <b>Nàng thơ trong veo</b></span>
+        <span class="chip">🎂 <b>Sinh nhật</b> · quanh năm</span>
+      </div>
+    </header>
+
+    <div class="divider"><span>Lịch 12 tháng</span></div>
+
+    <div class="tl">
+
+      <article class="m" style="--accent:var(--sage)">
+        <div class="m-top"><span class="m-no">Tháng 8</span><span class="m-dip">Năm học mới</span><span class="m-now">Đang tới</span></div>
+        <div class="m-rows">
+          <div class="row"><span class="lbl">Concept</span><span class="val">Thanh xuân trong veo + <b>ra mắt Hoa thật</b></span></div>
+          <div class="row"><span class="lbl">Nội dung</span><span class="val">Ra mắt dịch vụ, bộ ảnh mẫu, “làm mới bản thân đầu năm học”</span></div>
+          <div class="row"><span class="lbl">Ưu đãi</span><span class="val">Gói ra mắt 590k · tặng nâng cấp cho 10 khách đầu</span></div>
+        </div>
+      </article>
+
+      <article class="m" style="--accent:var(--butter)">
+        <div class="m-top"><span class="m-no">Tháng 9</span><span class="m-dip">Trung thu</span></div>
+        <div class="m-rows">
+          <div class="row"><span class="lbl">Concept</span><span class="val">Trung thu pastel (đèn lồng, tone ấm)</span></div>
+          <div class="row"><span class="lbl">Nội dung</span><span class="val">Concept Trung thu, rủ nhóm bạn cùng chụp</span></div>
+          <div class="row"><span class="lbl">Ưu đãi</span><span class="val">Combo đi 2–3 người</span></div>
+        </div>
+      </article>
+
+      <article class="m" style="--accent:var(--blush)">
+        <div class="m-top"><span class="m-no">Tháng 10</span><span class="m-dip">20/10 Phụ nữ VN</span></div>
+        <div class="m-rows">
+          <div class="row"><span class="lbl">Concept</span><span class="val">Nàng thơ với hoa</span></div>
+          <div class="row"><span class="lbl">Nội dung</span><span class="val">“Tự thưởng 20/10”, ảnh làm quà tặng</span></div>
+          <div class="row"><span class="lbl">Ưu đãi</span><span class="val">Voucher quà tặng · combo mẹ–con gái / bạn thân</span></div>
+        </div>
+      </article>
+
+      <article class="m" style="--accent:var(--sage)">
+        <div class="m-top"><span class="m-no">Tháng 11</span><span class="m-dip">20/11 Nhà giáo</span></div>
+        <div class="m-rows">
+          <div class="row"><span class="lbl">Concept</span><span class="val">Áo dài thanh lịch + nàng thơ</span></div>
+          <div class="row"><span class="lbl">Nội dung</span><span class="val">Tri ân thầy cô (sinh viên tặng cô giáo)</span></div>
+          <div class="row"><span class="lbl">Ưu đãi</span><span class="val">Gói áo dài cô giáo</span></div>
+        </div>
+      </article>
+
+      <article class="m" style="--accent:var(--rose)">
+        <div class="m-top"><span class="m-no">Tháng 12</span><span class="m-dip">Giáng sinh</span></div>
+        <div class="m-rows">
+          <div class="row"><span class="lbl">Concept</span><span class="val">Noel pastel (đỏ–trắng, thông, len)</span></div>
+          <div class="row"><span class="lbl">Nội dung</span><span class="val">Đếm ngược Noel, ảnh cuối năm</span></div>
+          <div class="row"><span class="lbl">Ưu đãi</span><span class="val">Đặt sớm Noel</span></div>
+        </div>
+      </article>
+
+      <article class="m" style="--accent:var(--rose)">
+        <div class="m-top"><span class="m-no">Tháng 1</span><span class="m-dip">Tết (chuẩn bị)</span></div>
+        <div class="m-rows">
+          <div class="row"><span class="lbl">Concept</span><span class="val">Tết (áo dài/yếm, đào–mai, tông đỏ–hồng)</span></div>
+          <div class="row"><span class="lbl">Nội dung</span><span class="val">“Ảnh Tết đón năm mới”, chốt lịch trước Tết</span></div>
+          <div class="row"><span class="lbl">Ưu đãi</span><span class="val">Đặt sớm tránh cháy lịch Tết</span></div>
+        </div>
+      </article>
+
+      <article class="m" style="--accent:var(--blush)">
+        <div class="m-top"><span class="m-no">Tháng 2</span><span class="m-dip">Tết + Valentine</span></div>
+        <div class="m-rows">
+          <div class="row"><span class="lbl">Concept</span><span class="val">Tết (đầu tháng) + Đôi/ngọt ngào (14/2)</span></div>
+          <div class="row"><span class="lbl">Nội dung</span><span class="val">Khai xuân, Valentine</span></div>
+          <div class="row"><span class="lbl">Ưu đãi</span><span class="val">Combo đôi Valentine</span></div>
+        </div>
+      </article>
+
+      <article class="m" style="--accent:var(--blush)">
+        <div class="m-top"><span class="m-no">Tháng 3</span><span class="m-dip">8/3 Quốc tế phụ nữ</span></div>
+        <div class="m-rows">
+          <div class="row"><span class="lbl">Concept</span><span class="val">Hoa (tường hoa / cúc hoạ mi)</span></div>
+          <div class="row"><span class="lbl">Nội dung</span><span class="val">“8/3 tự thưởng”, ảnh quà tặng</span></div>
+          <div class="row"><span class="lbl">Ưu đãi</span><span class="val">Voucher tặng · combo nhóm nữ</span></div>
+        </div>
+      </article>
+
+      <article class="m" style="--accent:var(--sage)">
+        <div class="m-top"><span class="m-no">Tháng 4</span><span class="m-dip">Xuân–hè · mùa đi tiệc</span></div>
+        <div class="m-rows">
+          <div class="row"><span class="lbl">Concept</span><span class="val">Nàng thơ ngoài trời / hoa xuân</span></div>
+          <div class="row"><span class="lbl">Nội dung</span><span class="val">“Đi tiệc / đám cưới bạn cần ảnh đẹp”</span></div>
+          <div class="row"><span class="lbl">Ưu đãi</span><span class="val">Gói nhóm bạn</span></div>
+        </div>
+      </article>
+
+      <article class="m" style="--accent:var(--sage)">
+        <div class="m-top"><span class="m-no">Tháng 5</span><span class="m-dip">Chớm hè · chớm sen</span></div>
+        <div class="m-rows">
+          <div class="row"><span class="lbl">Concept</span><span class="val">Sen + hoa hè</span></div>
+          <div class="row"><span class="lbl">Nội dung</span><span class="val">Concept sen, hè trong veo</span></div>
+          <div class="row"><span class="lbl">Ưu đãi</span><span class="val">Ưu đãi sớm mùa sen</span></div>
+        </div>
+      </article>
+
+      <article class="m" style="--accent:var(--sage)">
+        <div class="m-top"><span class="m-no">Tháng 6</span><span class="m-dip">Hè cao điểm</span></div>
+        <div class="m-rows">
+          <div class="row"><span class="lbl">Concept</span><span class="val">Sen đỉnh mùa + summer pastel</span></div>
+          <div class="row"><span class="lbl">Nội dung</span><span class="val">Sen đẹp nhất, ảnh du lịch hè</span></div>
+          <div class="row"><span class="lbl">Ưu đãi</span><span class="val">Ưu đãi hè</span></div>
+        </div>
+      </article>
+
+      <article class="m" style="--accent:var(--butter)">
+        <div class="m-top"><span class="m-no">Tháng 7</span><span class="m-dip">Hè · sinh nhật mùa hè</span></div>
+        <div class="m-rows">
+          <div class="row"><span class="lbl">Concept</span><span class="val">Sinh nhật + hướng dương</span></div>
+          <div class="row"><span class="lbl">Nội dung</span><span class="val">Đẩy mạnh sinh nhật giữa năm</span></div>
+          <div class="row"><span class="lbl">Ưu đãi</span><span class="val">Ưu đãi sinh nhật</span></div>
+        </div>
+      </article>
+
+    </div>
+
+    <div class="divider"><span>Nhịp đăng mỗi tháng</span></div>
+
+    <section class="rhythm">
+      <h3>4 tuần lặp lại</h3>
+      <p class="sub">Giữ nguyên khung này, chỉ thay concept + dịp theo bảng trên.</p>
+      <div class="weeks">
+        <div class="wk"><p class="n">Tuần 1 · Giới thiệu</p><p>Ra mắt concept dịp tháng — ảnh mẫu đẹp nhất.</p></div>
+        <div class="wk"><p class="n">Tuần 2 · Tin tưởng</p><p>Hậu trường + review khách thật.</p></div>
+        <div class="wk"><p class="n">Tuần 3 · Chốt</p><p>Tung ưu đãi + kêu gọi đặt lịch, nhấn deadline dịp.</p></div>
+        <div class="wk"><p class="n">Tuần 4 · Tạo gấp</p><p>Feedback khách + “còn X slot”.</p></div>
+      </div>
+    </section>
+
+    <footer>
+      <p class="brand">Lưu Ngân Makeup &amp; Bridal</p>
+      <p>Kế hoạch nội dung chụp Beauty · Pleiku – Gia Lai<br>🌷 Concept nền quanh năm + concept dịp theo tháng</p>
+    </footer>
+
+  </div>
+</div>
