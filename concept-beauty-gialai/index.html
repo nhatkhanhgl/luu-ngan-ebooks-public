@@ -1,0 +1,288 @@
+<style>
+  :root{
+    --bg:#FFFCFA; --bg-soft:#FBF1EC; --surface:#FFFFFF;
+    --ink:#3B2F35; --ink-soft:#8A7078; --line:#F1DEE3;
+    --rose:#C1748C; --blush:#EBB4C4; --lilac:#C3AEE0; --sage:#A6BCA0; --butter:#EAC98C;
+    --shadow:0 12px 34px rgba(170,115,135,.12);
+    --serif:"Iowan Old Style","Palatino Linotype","Book Antiqua",Georgia,serif;
+    --sans:system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",sans-serif;
+    --maxw:680px;
+  }
+  @media (prefers-color-scheme:dark){
+    :root{
+      --bg:#1C161A; --bg-soft:#241B22; --surface:#261D24;
+      --ink:#F4E9EE; --ink-soft:#C3A6B3; --line:#3A2B33;
+      --rose:#E8A6BB; --blush:#E3A2B8; --lilac:#CBB6EC; --sage:#AECBA6; --butter:#EBCB92;
+      --shadow:0 14px 40px rgba(0,0,0,.45);
+    }
+  }
+  :root[data-theme="light"]{
+    --bg:#FFFCFA; --bg-soft:#FBF1EC; --surface:#FFFFFF;
+    --ink:#3B2F35; --ink-soft:#8A7078; --line:#F1DEE3;
+    --rose:#C1748C; --blush:#EBB4C4; --lilac:#C3AEE0; --sage:#A6BCA0; --butter:#EAC98C;
+    --shadow:0 12px 34px rgba(170,115,135,.12);
+  }
+  :root[data-theme="dark"]{
+    --bg:#1C161A; --bg-soft:#241B22; --surface:#261D24;
+    --ink:#F4E9EE; --ink-soft:#C3A6B3; --line:#3A2B33;
+    --rose:#E8A6BB; --blush:#E3A2B8; --lilac:#CBB6EC; --sage:#AECBA6; --butter:#EBCB92;
+    --shadow:0 14px 40px rgba(0,0,0,.45);
+  }
+
+  *{box-sizing:border-box}
+  body{margin:0}
+  .wrap{
+    font-family:var(--sans); color:var(--ink); background:
+      radial-gradient(120% 60% at 50% -10%, color-mix(in srgb,var(--blush) 22%,transparent), transparent 60%),
+      var(--bg);
+    min-height:100vh; padding:0 20px 64px; -webkit-font-smoothing:antialiased;
+  }
+  .page{max-width:var(--maxw); margin:0 auto}
+
+  /* HERO */
+  header{padding:56px 4px 26px; text-align:center}
+  .eyebrow{
+    font-size:12px; letter-spacing:.28em; text-transform:uppercase;
+    color:var(--rose); font-weight:600; margin:0 0 20px;
+  }
+  h1{
+    font-family:var(--serif); font-weight:500; text-wrap:balance;
+    font-size:clamp(34px,9vw,52px); line-height:1.08; margin:0 0 16px; letter-spacing:.01em;
+  }
+  h1 em{font-style:italic; color:var(--rose)}
+  .lede{
+    max-width:34ch; margin:0 auto; color:var(--ink-soft);
+    font-size:16px; line-height:1.6;
+  }
+  .swatches{display:flex; gap:10px; justify-content:center; margin:26px 0 4px; flex-wrap:wrap}
+  .sw{display:flex; flex-direction:column; align-items:center; gap:7px; font-size:10.5px; letter-spacing:.06em; color:var(--ink-soft)}
+  .dot{width:34px; height:34px; border-radius:50%; box-shadow:inset 0 0 0 1px rgba(0,0,0,.04), var(--shadow)}
+
+  .divider{display:flex; align-items:center; gap:14px; color:var(--rose); margin:40px 0 30px; opacity:.9}
+  .divider::before,.divider::after{content:""; height:1px; background:var(--line); flex:1}
+  .divider span{font-size:12px; letter-spacing:.24em; text-transform:uppercase; font-weight:600}
+
+  /* CONCEPT CARDS */
+  .card{
+    background:var(--surface); border:1px solid var(--line); border-radius:22px;
+    padding:26px 22px; margin:20px 0; box-shadow:var(--shadow); position:relative; overflow:hidden;
+  }
+  .card::before{
+    content:""; position:absolute; inset:0 auto 0 0; width:5px;
+    background:linear-gradient(var(--accent), color-mix(in srgb,var(--accent) 40%, transparent));
+  }
+  .c-head{display:flex; align-items:baseline; gap:12px; flex-wrap:wrap}
+  .c-emoji{font-size:26px; line-height:1}
+  .c-name{font-family:var(--serif); font-size:26px; font-weight:500; margin:0}
+  .c-tag{
+    margin-left:auto; font-size:11px; letter-spacing:.08em; text-transform:uppercase; font-weight:600;
+    color:var(--ink); background:color-mix(in srgb,var(--accent) 30%, var(--surface));
+    padding:5px 11px; border-radius:999px;
+  }
+  .c-desc{color:var(--ink-soft); font-size:14.5px; line-height:1.6; margin:14px 0 18px}
+
+  .meta{display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-bottom:18px}
+  .meta .box{background:var(--bg-soft); border-radius:13px; padding:12px 14px}
+  .meta .k{font-size:10.5px; letter-spacing:.14em; text-transform:uppercase; color:var(--rose); font-weight:600; margin:0 0 5px}
+  .meta .v{font-size:14px; line-height:1.4; margin:0}
+  .price .v{font-family:var(--serif); font-size:19px; font-weight:500}
+
+  .reflabel{font-size:11px; letter-spacing:.14em; text-transform:uppercase; color:var(--ink-soft); font-weight:600; margin:6px 0 10px}
+  .links{display:flex; flex-direction:column; gap:8px}
+  .lnk{
+    display:flex; align-items:center; gap:11px; text-decoration:none; color:var(--ink);
+    background:var(--bg-soft); border:1px solid var(--line); border-radius:12px;
+    padding:11px 13px; font-size:13.5px; transition:transform .12s ease, border-color .12s ease;
+  }
+  .lnk:hover{transform:translateY(-1px); border-color:var(--accent)}
+  .lnk:focus-visible{outline:2px solid var(--rose); outline-offset:2px}
+  .lnk .ic{width:22px; height:22px; flex:none; display:grid; place-items:center; border-radius:7px; font-size:12px; background:color-mix(in srgb,var(--accent) 35%,var(--surface))}
+  .lnk .t{flex:1; line-height:1.35}
+  .lnk .arw{color:var(--ink-soft); font-size:15px}
+  .grp{margin-top:16px}
+
+  /* TONE STRIP */
+  .tone{background:var(--surface); border:1px solid var(--line); border-radius:22px; padding:24px 22px; box-shadow:var(--shadow); margin-top:8px}
+  .tone h3{font-family:var(--serif); font-weight:500; font-size:22px; margin:0 0 6px}
+  .tone p.sub{color:var(--ink-soft); font-size:14px; margin:0 0 18px; line-height:1.55}
+  .tone-grid{display:grid; grid-template-columns:1fr 1fr; gap:12px}
+  .tcol{border-radius:14px; padding:14px 15px}
+  .tcol.yes{background:color-mix(in srgb,var(--sage) 20%, var(--surface))}
+  .tcol.no{background:color-mix(in srgb,var(--blush) 16%, var(--surface))}
+  .tcol h4{margin:0 0 9px; font-size:12px; letter-spacing:.1em; text-transform:uppercase}
+  .tcol.yes h4{color:#5f7a58} .tcol.no h4{color:var(--rose)}
+  @media (prefers-color-scheme:dark){ .tcol.yes h4{color:var(--sage)} }
+  :root[data-theme="dark"] .tcol.yes h4{color:var(--sage)}
+  .tcol ul{margin:0; padding-left:16px; color:var(--ink-soft); font-size:13px; line-height:1.7}
+
+  /* OFFER */
+  .offer{
+    margin-top:26px; text-align:center; border-radius:22px; padding:32px 24px;
+    background:linear-gradient(160deg, color-mix(in srgb,var(--blush) 30%,var(--surface)), color-mix(in srgb,var(--lilac) 22%,var(--surface)));
+    border:1px solid var(--line); box-shadow:var(--shadow);
+  }
+  .offer .k{font-size:11px; letter-spacing:.22em; text-transform:uppercase; color:var(--rose); font-weight:700; margin:0 0 12px}
+  .offer h3{font-family:var(--serif); font-weight:500; font-size:clamp(22px,6vw,30px); margin:0 0 12px; text-wrap:balance}
+  .offer p{color:var(--ink-soft); font-size:14.5px; line-height:1.6; margin:0 auto; max-width:36ch}
+  .pricepill{display:inline-flex; align-items:baseline; gap:8px; margin-top:18px; background:var(--surface); border-radius:999px; padding:12px 22px; box-shadow:var(--shadow)}
+  .pricepill b{font-family:var(--serif); font-size:24px; color:var(--rose); font-weight:600}
+  .pricepill span{font-size:13px; color:var(--ink-soft)}
+
+  footer{text-align:center; color:var(--ink-soft); font-size:12px; margin-top:34px; line-height:1.7}
+  footer .brand{font-family:var(--serif); font-size:15px; color:var(--ink); font-style:italic}
+
+  @media (max-width:440px){ .meta{grid-template-columns:1fr} .tone-grid{grid-template-columns:1fr} }
+  @media (prefers-reduced-motion:reduce){ *{transition:none!important} }
+</style>
+
+<div class="wrap">
+  <div class="page">
+
+    <header>
+      <p class="eyebrow">Lưu Ngân · Makeup &amp; Bridal · Gia Lai</p>
+      <h1>Chụp Beauty<br>concept <em>trong trẻo</em></h1>
+      <p class="lede">Bộ concept ra mắt cho giới trẻ Gia Lai — makeup trong veo, tông pastel, lên hình sang mà giá sinh viên.</p>
+
+      <div class="swatches" aria-hidden="true">
+        <div class="sw"><span class="dot" style="background:#FFFFFF"></span>Trắng</div>
+        <div class="sw"><span class="dot" style="background:#FBF1EC"></span>Kem</div>
+        <div class="sw"><span class="dot" style="background:#EBB4C4"></span>Hồng phấn</div>
+        <div class="sw"><span class="dot" style="background:#C3AEE0"></span>Tím nhạt</div>
+        <div class="sw"><span class="dot" style="background:#EAC98C"></span>Daisy</div>
+      </div>
+    </header>
+
+    <div class="divider"><span>3 concept chính</span></div>
+
+    <!-- BƯỚM -->
+    <article class="card" style="--accent:var(--lilac)">
+      <div class="c-head">
+        <span class="c-emoji">🦋</span>
+        <h2 class="c-name">Bướm</h2>
+        <span class="c-tag">Độc quyền Gia Lai</span>
+      </div>
+      <p class="c-desc">Cánh bướm pastel (hồng phấn / tím nhạt / trắng), nền sáng, makeup trong veo, có thể cài bướm lên tóc kiểu nàng thơ. Khác biệt, dễ viral — chưa studio nào ở Gia Lai làm.</p>
+      <div class="meta">
+        <div class="box"><p class="k">Đối tượng</p><p class="v">Nữ 18–25, sinh viên thích bắt trend, sống ảo</p></div>
+        <div class="box price"><p class="k">Giá</p><p class="v">590k → 1.5tr</p></div>
+      </div>
+      <div class="grp">
+        <p class="reflabel">Video tham khảo</p>
+        <div class="links">
+          <a class="lnk" href="https://www.tiktok.com/@tth_chang/video/7656661910384905493" target="_blank" rel="noopener"><span class="ic">▶</span><span class="t">“Bướm mùa hè — ai chụp cũng thơ”</span><span class="arw">→</span></a>
+          <a class="lnk" href="https://www.tiktok.com/@tiemanhnhamochi_/video/7645656814624804104" target="_blank" rel="noopener"><span class="ic">▶</span><span class="t">“Bướm đơn giản đang làm mưa làm gió”</span><span class="arw">→</span></a>
+          <a class="lnk" href="https://www.tiktok.com/@tiemanhindoor/video/7653484478786014472" target="_blank" rel="noopener"><span class="ic">▶</span><span class="t">“Bướm tím xinh xỉu”</span><span class="arw">→</span></a>
+        </div>
+      </div>
+      <div class="grp">
+        <p class="reflabel">Album / mood-board</p>
+        <div class="links">
+          <a class="lnk" href="https://www.pinterest.com/search/pins/?q=pastel%20butterfly%20photoshoot" target="_blank" rel="noopener"><span class="ic">◆</span><span class="t">Pinterest — pastel butterfly</span><span class="arw">→</span></a>
+          <a class="lnk" href="https://www.pinterest.com/search/pins/?q=concept%20b%C6%B0%E1%BB%9Bm%20n%C3%A0ng%20th%C6%A1" target="_blank" rel="noopener"><span class="ic">◆</span><span class="t">Pinterest — concept bướm nàng thơ</span><span class="arw">→</span></a>
+        </div>
+      </div>
+    </article>
+
+    <!-- NÀNG THƠ -->
+    <article class="card" style="--accent:var(--sage)">
+      <div class="c-head">
+        <span class="c-emoji">🌤️</span>
+        <h2 class="c-name">Nàng thơ trong veo</h2>
+        <span class="c-tag">Gói an toàn</span>
+      </div>
+      <p class="c-desc">Nền trắng / kem high-key, hoa daisy &amp; baby's breath, váy hoa nhí, makeup căng bóng tự nhiên. Ai chụp cũng đẹp — chốt được cả khách ngại concept lạ.</p>
+      <div class="meta">
+        <div class="box"><p class="k">Đối tượng</p><p class="v">Nữ 18–30, thích nhẹ nhàng, dịu dàng</p></div>
+        <div class="box price"><p class="k">Giá</p><p class="v">590k → 1.5tr</p></div>
+      </div>
+      <div class="grp">
+        <p class="reflabel">Video tham khảo</p>
+        <div class="links">
+          <a class="lnk" href="https://www.tiktok.com/@mostudiohanoi/video/7657019256327900424" target="_blank" rel="noopener"><span class="ic">▶</span><span class="t">“Thuần khiết mộng mơ — hoa daisy” ⭐</span><span class="arw">→</span></a>
+          <a class="lnk" href="https://www.tiktok.com/@cem.studio/video/7645499650450967816" target="_blank" rel="noopener"><span class="ic">▶</span><span class="t">“Beauty trong trẻo ngọt ngào”</span><span class="arw">→</span></a>
+          <a class="lnk" href="https://www.tiktok.com/@nami.studioo/video/7641986795844029703" target="_blank" rel="noopener"><span class="ic">▶</span><span class="t">“Beauty hoa trong trẻo, đơn giản mà xinh”</span><span class="arw">→</span></a>
+        </div>
+      </div>
+      <div class="grp">
+        <p class="reflabel">Album / mood-board</p>
+        <div class="links">
+          <a class="lnk" href="https://mjnstudio.com/bo-suu-tap/chup-anh-beauty-nang-tho/" target="_blank" rel="noopener"><span class="ic">◆</span><span class="t">MJN Studio — album nàng thơ</span><span class="arw">→</span></a>
+          <a class="lnk" href="https://chothuestudio.com/chup-anh-concept-nang-tho-voi-hoa-trong-phong-dep/" target="_blank" rel="noopener"><span class="ic">◆</span><span class="t">Nàng thơ với hoa trong phòng</span><span class="arw">→</span></a>
+          <a class="lnk" href="https://www.pinterest.com/search/pins/?q=korean%20dreamy%20muse%20photoshoot" target="_blank" rel="noopener"><span class="ic">◆</span><span class="t">Pinterest — Korean dreamy muse</span><span class="arw">→</span></a>
+        </div>
+      </div>
+    </article>
+
+    <!-- SINH NHẬT -->
+    <article class="card" style="--accent:var(--blush)">
+      <div class="c-head">
+        <span class="c-emoji">🎂</span>
+        <h2 class="c-name">Sinh nhật</h2>
+        <span class="c-tag">Dễ ra khách</span>
+      </div>
+      <p class="c-desc">Tông trong trẻo pastel (trắng – kem – hồng phấn): bóng bay pastel, bánh kem trắng, hoa daisy, số tuổi. Bỏ hẳn kiểu đỏ gắt — giữ đúng chất Lưu Ngân. Nhu cầu lặp lại mỗi khách mỗi năm.</p>
+      <div class="meta">
+        <div class="box"><p class="k">Đối tượng</p><p class="v">Mọi nữ có sinh nhật, mạnh nhất 18–30</p></div>
+        <div class="box price"><p class="k">Giá</p><p class="v">1tr → 2.5tr</p></div>
+      </div>
+      <div class="grp">
+        <p class="reflabel">Video tham khảo (đúng tông)</p>
+        <div class="links">
+          <a class="lnk" href="https://www.tiktok.com/@xingxingstudio1/video/7661924843432201480" target="_blank" rel="noopener"><span class="ic">▶</span><span class="t">“Sinh nhật hồng đáng iu” — pastel</span><span class="arw">→</span></a>
+          <a class="lnk" href="https://www.tiktok.com/@cem.studio/video/7663416302555450642" target="_blank" rel="noopener"><span class="ic">▶</span><span class="t">“Concept sinh nhật CEm” (mới nhất)</span><span class="arw">→</span></a>
+          <a class="lnk" href="https://www.tiktok.com/@tiemanhindoor/video/7661652075272588551" target="_blank" rel="noopener"><span class="ic">▶</span><span class="t">“Sinh nhật siêu cutii” — pastel dễ thương</span><span class="arw">→</span></a>
+        </div>
+      </div>
+      <div class="grp">
+        <p class="reflabel">Album / mood-board</p>
+        <div class="links">
+          <a class="lnk" href="https://nhungbabystudio.com/concept-chup-anh-sinh-nhat-nang-tho/" target="_blank" rel="noopener"><span class="ic">◆</span><span class="t">Top concept sinh nhật nàng thơ</span><span class="arw">→</span></a>
+          <a class="lnk" href="https://hthaostudio.com/5-concept-chup-anh-sinh-nhat-studio-sieu-de-thuong/" target="_blank" rel="noopener"><span class="ic">◆</span><span class="t">5 concept sinh nhật siêu dễ thương</span><span class="arw">→</span></a>
+          <a class="lnk" href="https://www.pinterest.com/search/pins/?q=pastel%20dreamy%20birthday%20photoshoot" target="_blank" rel="noopener"><span class="ic">◆</span><span class="t">Pinterest — pastel dreamy birthday</span><span class="arw">→</span></a>
+        </div>
+      </div>
+    </article>
+
+    <div class="divider"><span>Chốt tông</span></div>
+
+    <section class="tone">
+      <h3>Giữ đúng chất trong trẻo</h3>
+      <p class="sub">3 concept khác nhau nhưng cùng một bảng màu — nhìn vào là biết “ảnh của Lưu Ngân”.</p>
+      <div class="tone-grid">
+        <div class="tcol yes">
+          <h4>Nên</h4>
+          <ul>
+            <li>Nền trắng / kem, ánh sáng high-key</li>
+            <li>Hoa daisy, baby's breath</li>
+            <li>Bóng &amp; đạo cụ pastel</li>
+            <li>Makeup trong veo, má hồng nhẹ</li>
+            <li>Váy hoa nhí, tông sáng</li>
+          </ul>
+        </div>
+        <div class="tcol no">
+          <h4>Tránh</h4>
+          <ul>
+            <li>Nền đen, đỏ gắt, tối màu</li>
+            <li>Bóng đỏ / neon rực</li>
+            <li>Môi đỏ đậm, mắt khói</li>
+            <li>Body cutout gắt</li>
+            <li>Tương phản, đổ bóng mạnh</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="offer">
+      <p class="k">Ưu đãi ra mắt</p>
+      <h3>Tặng makeup nâng cấp + 5 ảnh sửa</h3>
+      <p>Dành cho 10 khách đầu tiên đặt lịch trong tháng ra mắt. Số slot có hạn.</p>
+      <div class="pricepill"><b>590k</b><span>trọn gói makeup + trang phục + ảnh</span></div>
+    </section>
+
+    <footer>
+      <p class="brand">Lưu Ngân Makeup &amp; Bridal</p>
+      <p>Chụp Beauty concept · Pleiku – Gia Lai<br>📞 Inbox / Zalo để giữ slot · 🌷</p>
+    </footer>
+
+  </div>
+</div>
