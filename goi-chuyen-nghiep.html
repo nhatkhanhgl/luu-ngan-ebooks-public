@@ -55,19 +55,20 @@ body{
 .total-line{display:flex;justify-content:space-between;align-items:center;background:var(--rose-soft);border-radius:14px;padding:14px 18px;margin-top:14px;font-weight:800;color:var(--wine-dark)}
 .total-line span:last-child{font-size:22px}
 .promo{background:linear-gradient(135deg,#fff2f6,#f8e7ee);border:1px solid #edcad8}
-.promo .big{font-size:clamp(38px,7vw,68px);line-height:1;font-weight:900;color:var(--wine-dark);margin:8px 0 6px}
-.promo .time{font-weight:700;margin:0 0 18px}
-.promo-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
-.promo-card{background:#fff;border:1px solid #ead4dd;border-radius:18px;padding:20px}
-.promo-card .pc-t{font-weight:800;color:var(--wine-dark);font-size:17px}
-.promo-card .pc-v{font-size:26px;font-weight:900;color:var(--wine);margin-top:4px}
-.promo-card .small{margin-top:4px}
-.after{margin-top:18px;background:#fff;border:2px solid var(--wine);border-radius:18px;padding:20px;text-align:center}
-.after .a1{font-size:15px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
-.after .a2{font-size:16px;color:var(--muted);margin-top:6px}
-.after .a2 s{color:#b3a3ab}
-.after .a3{font-size:clamp(34px,6vw,52px);font-weight:900;color:var(--wine-dark);line-height:1.1}
-.after .a4{margin-top:8px;font-weight:700;color:var(--green)}
+.promo .hl{color:var(--wine);font-size:1.25em}
+.promo-head{display:flex;justify-content:space-between;align-items:center;gap:14px;flex-wrap:wrap;margin-bottom:16px}
+.deadline{background:var(--wine);color:#fff;font-weight:800;border-radius:999px;padding:10px 20px;font-size:16px;box-shadow:var(--shadow)}
+.gift-list{display:flex;flex-direction:column;gap:10px}
+.gift{display:flex;align-items:center;gap:14px;background:#fff;border:1.5px dashed var(--rose);border-radius:16px;padding:14px 18px}
+.gift .gi{font-size:30px}
+.gift .gt{flex:1;line-height:1.35}
+.gift .gt b{color:var(--wine-dark);font-size:17px}
+.gift .gv{font-size:21px;font-weight:900;color:var(--wine);white-space:nowrap}
+.after{margin-top:16px;background:linear-gradient(135deg,var(--wine-dark),var(--wine));color:#fff;border-radius:18px;padding:18px 20px;text-align:center}
+.after .a1{font-size:14px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;opacity:.85}
+.after .a3{font-size:clamp(28px,5.5vw,44px);font-weight:900;line-height:1.15;margin-top:4px}
+.after .a3 s{opacity:.55;font-size:.6em;font-weight:700;margin-right:8px}
+.after .a4{margin-top:8px;font-weight:700;color:#ffe3a3;font-size:15px}
 .steps{display:grid;grid-template-columns:1fr 1fr;gap:14px}
 .step{padding:18px;border-radius:18px;background:#fbf4f7;border:1px solid var(--line)}
 .step .num{width:34px;height:34px;border-radius:50%;background:var(--wine);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:800;margin-bottom:10px}
@@ -108,7 +109,7 @@ body{
   <section class="hero">
     <div class="eyebrow">Gói 02 · Đào tạo nghề Makeup</div>
     <h1>Khoá CHUYÊN NGHIỆP</h1>
-    <p class="tagline">Trở thành Makeup Artist chuyên nghiệp — đào tạo makeup từ cơ bản đến nâng cao.</p>
+    <p class="tagline">Trở thành Makeup Artist chuyên nghiệp — đào tạo makeup từ cơ bản đến nâng cao.<br>Giảng viên Makeup: <b>Thanh Thanh</b> · Giảng viên Tóc: <b>Hồng Sương</b></p>
     <div class="hero-meta">
       <div class="chip">Học phí <b>20.000.000đ</b></div>
       <div class="chip">⏱ 03 tháng</div>
@@ -138,10 +139,6 @@ body{
       <div class="pv">Trị giá 3.000.000đ</div>
     </div>
     <div class="perk">
-      <div class="pt">📋 <b>Bộ quy trình &amp; tài liệu làm nghề</b><i>Quy trình makeup, chăm sóc khách hàng, biểu mẫu và tài liệu chuyên môn.</i></div>
-      <div class="pv"><span class="inc">✓ Kèm gói</span></div>
-    </div>
-    <div class="perk">
       <div class="pt">🎓 <b>Hỗ trợ chuyên môn sau tốt nghiệp — 03 tháng</b><i>Hướng dẫn lại bài, giải đáp chuyên môn, góp ý bài làm, hỗ trợ xử lý tình huống thực tế.</i></div>
       <div class="pv"><span class="inc">✓ Kèm gói</span></div>
     </div>
@@ -149,27 +146,29 @@ body{
   </section>
 
   <section class="section promo">
-    <div class="eyebrow" style="color:var(--wine);opacity:1">Chương trình khuyến mãi khai giảng</div>
-    <h2 style="margin-top:6px">Đăng ký gói Chuyên nghiệp — nhận thêm</h2>
-    <div class="big">10.000.000đ</div>
-    <p class="time">⏰ Áp dụng từ <b>24/07/2026</b> đến hết <b>31/07/2026</b></p>
-    <div class="promo-grid">
-      <div class="promo-card">
-        <div class="pc-t">🎁 Tặng trọn chương trình TÓC CHUYÊN NGHIỆP</div>
-        <div class="pc-v">8.000.000đ</div>
-        <div class="small">30 buổi — tóc tiệc &amp; tóc cô dâu, giảng viên chuyên trách, học xen kẽ lộ trình makeup, không phát sinh thời gian học.</div>
+    <div class="promo-head">
+      <div>
+        <div class="eyebrow" style="color:var(--wine);opacity:1">🎉 Ưu đãi khai giảng</div>
+        <h2 style="margin:4px 0 0">Nhận thêm <span class="hl">10.000.000đ</span></h2>
       </div>
-      <div class="promo-card">
-        <div class="pc-t">💸 Giảm ngay 10% học phí</div>
-        <div class="pc-v">2.000.000đ</div>
-        <div class="small">Trừ thẳng vào học phí khi đăng ký và đặt cọc trong thời gian chương trình.</div>
+      <div class="deadline">⏰ Chỉ từ 24/07 — 31/07</div>
+    </div>
+    <div class="gift-list">
+      <div class="gift">
+        <span class="gi">🎁</span>
+        <span class="gt"><b>Tặng trọn khoá TÓC CHUYÊN NGHIỆP — 30 buổi</b><br><span class="small">Tóc tiệc &amp; tóc cô dâu · GV Hồng Sương · học xen kẽ, không thêm thời gian</span></span>
+        <span class="gv">8.000.000đ</span>
+      </div>
+      <div class="gift">
+        <span class="gi">💸</span>
+        <span class="gt"><b>Giảm ngay 10% học phí</b><br><span class="small">Trừ thẳng khi đăng ký &amp; đặt cọc trong thời gian chương trình</span></span>
+        <span class="gv">2.000.000đ</span>
       </div>
     </div>
     <div class="after">
       <div class="a1">Học phí sau ưu đãi</div>
-      <div class="a2"><s>20.000.000đ</s></div>
-      <div class="a3">18.000.000đ</div>
-      <div class="a4">✓ Kèm trọn chương trình Tóc 30 buổi + bộ quyền lợi 4.500.000đ</div>
+      <div class="a3"><s>20.000.000đ</s> ➜ 18.000.000đ</div>
+      <div class="a4">✓ Kèm trọn khoá Tóc 30 buổi + bộ ảnh trị giá 4.500.000đ</div>
     </div>
   </section>
 
@@ -200,7 +199,7 @@ body{
     <p>CS1: 22 Wừu · CS2: 77A Thống Nhất — P. Diên Hồng, Gia Lai</p>
   </section>
 
-  <div class="footer">Lưu Ngân Academy — Giảng viên trực tiếp: Thanh Thanh</div>
+  <div class="footer">Lưu Ngân Academy — GV Makeup: Thanh Thanh · GV Tóc: Hồng Sương</div>
 </div>
 </body>
 </html>
