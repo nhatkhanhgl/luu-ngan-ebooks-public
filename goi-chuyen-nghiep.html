@@ -58,12 +58,15 @@ body{
 .promo .hl{color:var(--wine);font-size:1.25em}
 .promo-head{display:flex;justify-content:space-between;align-items:center;gap:14px;flex-wrap:wrap;margin-bottom:16px}
 .deadline{background:var(--wine);color:#fff;font-weight:800;border-radius:999px;padding:10px 20px;font-size:16px;box-shadow:var(--shadow)}
-.gift-list{display:flex;flex-direction:column;gap:10px}
-.gift{display:flex;align-items:center;gap:14px;background:#fff;border:1.5px dashed var(--rose);border-radius:16px;padding:14px 18px}
-.gift .gi{font-size:30px}
-.gift .gt{flex:1;line-height:1.35}
-.gift .gt b{color:var(--wine-dark);font-size:17px}
-.gift .gv{font-size:21px;font-weight:900;color:var(--wine);white-space:nowrap}
+.stack{background:#fff;border:1.5px dashed var(--rose);border-radius:16px;padding:6px 18px}
+.srow{display:flex;justify-content:space-between;align-items:center;gap:14px;padding:13px 0;border-bottom:1px solid var(--line)}
+.srow:last-child{border-bottom:0}
+.srow .sl{font-weight:700;color:var(--wine-dark);font-size:16.5px;line-height:1.35}
+.srow .sl em{font-style:normal;color:var(--green);font-weight:800;font-size:14px}
+.srow .sv{font-size:19px;font-weight:900;color:var(--wine);white-space:nowrap}
+.srow.stotal{border-top:2px solid var(--wine);margin-top:2px}
+.srow.stotal .sl{font-size:17px;text-transform:uppercase;letter-spacing:.03em}
+.srow.stotal .sv{font-size:24px;color:var(--wine-dark)}
 .after{margin-top:16px;background:linear-gradient(135deg,var(--wine-dark),var(--wine));color:#fff;border-radius:18px;padding:18px 20px;text-align:center}
 .after .a1{font-size:14px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;opacity:.85}
 .after .a3{font-size:clamp(28px,5.5vw,44px);font-weight:900;line-height:1.15;margin-top:4px}
@@ -148,41 +151,27 @@ body{
   <section class="section promo">
     <div class="promo-head">
       <div>
-        <div class="eyebrow" style="color:var(--wine);opacity:1">🎉 Ưu đãi khai giảng</div>
-        <h2 style="margin:4px 0 0">Nhận thêm <span class="hl">10.000.000đ</span></h2>
+        <div class="eyebrow" style="color:var(--wine);opacity:1">🎉 Combo ưu đãi khai giảng</div>
+        <h2 style="margin:4px 0 0">Trọn bộ ra nghề — <span class="hl">một mức giá</span></h2>
       </div>
       <div class="deadline">⏰ Chỉ từ 24/07 — 31/07</div>
     </div>
-    <div class="gift-list">
-      <div class="gift">
-        <span class="gi">🎁</span>
-        <span class="gt"><b>Tặng trọn khoá TÓC CHUYÊN NGHIỆP — 30 buổi</b><br><span class="small">Tóc tiệc &amp; tóc cô dâu · GV Hồng Sương · học xen kẽ, không thêm thời gian</span></span>
-        <span class="gv">8.000.000đ</span>
-      </div>
-      <div class="gift">
-        <span class="gi">💸</span>
-        <span class="gt"><b>Giảm ngay 10% học phí</b><br><span class="small">Trừ thẳng khi đăng ký &amp; đặt cọc trong thời gian chương trình</span></span>
-        <span class="gv">2.000.000đ</span>
-      </div>
+    <div class="stack">
+      <div class="srow"><span class="sl">💄 Khoá Makeup Chuyên nghiệp — 3 tháng, GV Thanh Thanh</span><span class="sv">20.000.000đ</span></div>
+      <div class="srow"><span class="sl">💇‍♀️ Trọn khoá Tóc chuyên nghiệp — 30 buổi, GV Hồng Sương <em>(tặng kèm)</em></span><span class="sv">8.000.000đ</span></div>
+      <div class="srow"><span class="sl">📷 Bộ ảnh Profile cá nhân + 03 bộ ảnh Makeup thành phẩm</span><span class="sv">4.500.000đ</span></div>
+      <div class="srow stotal"><span class="sl">Tổng giá trị trọn bộ</span><span class="sv">32.500.000đ</span></div>
     </div>
     <div class="after">
-      <div class="a1">Học phí sau ưu đãi</div>
-      <div class="a3"><s>20.000.000đ</s> ➜ 18.000.000đ</div>
-      <div class="a4">✓ Kèm trọn khoá Tóc 30 buổi + bộ ảnh trị giá 4.500.000đ</div>
+      <div class="a1">Đăng ký trong 24/07 — 31/07, chỉ còn</div>
+      <div class="a3"><s>32.500.000đ</s> ➜ 18.000.000đ</div>
+      <div class="a4">💰 Tiết kiệm 14.500.000đ — đã gồm giảm 10% học phí + tặng trọn khoá Tóc</div>
     </div>
+    <p class="small" style="margin-top:12px;text-align:center">Mỗi khoá chỉ nhận 16 học viên (8 sáng · 8 chiều) — đủ người là đóng danh sách.</p>
   </section>
 
   <section class="section">
-    <h2>3. Học phí &amp; cách đóng</h2>
-    <div class="steps">
-      <div class="step"><div class="num">1</div><b>Đợt 1 — khi nhập học</b><br><span class="small">Đóng phần đầu học phí, nhận lịch học ngay.</span></div>
-      <div class="step"><div class="num">2</div><b>Đợt 2 — sau 1 tháng</b><br><span class="small">Đóng phần còn lại khi đã vào guồng học.</span></div>
-    </div>
-    <p class="small" style="margin-top:12px">Mỗi khoá chỉ nhận 16 học viên (8 sáng · 8 chiều) — đủ người là đóng danh sách.</p>
-  </section>
-
-  <section class="section">
-    <h2>4. Điều kiện áp dụng ưu đãi</h2>
+    <h2>3. Điều kiện áp dụng ưu đãi</h2>
     <table class="cond">
       <tr><td>Thời gian</td><td>Từ 24/07/2026 đến hết 31/07/2026.</td></tr>
       <tr><td>Điều kiện</td><td>Đăng ký và đặt cọc trong thời gian diễn ra chương trình.</td></tr>
