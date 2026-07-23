@@ -1,0 +1,206 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Gói Chuyên Nghiệp - Lưu Ngân Academy</title>
+<style>
+:root{
+  --wine:#7d2f50;
+  --wine-dark:#5d203b;
+  --rose:#b66a83;
+  --rose-soft:#faf1f5;
+  --ink:#2d2530;
+  --muted:#716873;
+  --line:#eadde3;
+  --green:#247a52;
+  --gold:#a4740a;
+  --shadow:0 14px 38px rgba(84,39,57,.10);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  background:linear-gradient(180deg,#fbf8fa 0,#f3eef1 100%);
+  color:var(--ink);
+  font-family:"Segoe UI","Be Vietnam Pro",Arial,sans-serif;
+  line-height:1.6;
+}
+.page{width:min(980px,calc(100% - 28px));margin:28px auto 70px}
+.topbar{display:flex;justify-content:space-between;align-items:center;gap:14px;margin-bottom:16px}
+.brand{font-weight:800;letter-spacing:.08em;color:var(--wine)}
+.print-btn{border:0;border-radius:999px;padding:11px 18px;background:var(--wine);color:#fff;font-weight:700;cursor:pointer;box-shadow:var(--shadow)}
+.hero{
+  background:linear-gradient(135deg,var(--wine-dark),var(--wine) 58%,#a85e79);
+  color:#fff;border-radius:26px;padding:38px 40px;box-shadow:var(--shadow);
+}
+.eyebrow{font-size:13px;letter-spacing:.13em;text-transform:uppercase;opacity:.86;font-weight:700}
+.hero h1{font-size:clamp(30px,4.8vw,52px);line-height:1.08;margin:10px 0 8px}
+.hero .tagline{font-size:18px;opacity:.94;margin:0 0 22px}
+.hero-meta{display:flex;flex-wrap:wrap;gap:12px}
+.chip{background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.28);border-radius:999px;padding:9px 18px;font-weight:700;font-size:15px}
+.chip b{font-size:20px}
+.section{background:#fff;border:1px solid rgba(123,47,79,.08);border-radius:22px;padding:28px;margin-top:22px;box-shadow:var(--shadow)}
+.section h2{margin:0 0 16px;color:var(--wine-dark);font-size:26px;line-height:1.25}
+.lead{color:var(--muted);margin-top:-6px;margin-bottom:16px}
+.learn{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.learn div{background:#fbf4f7;border:1px solid var(--line);border-radius:14px;padding:14px 16px}
+.learn b{color:var(--wine-dark)}
+.perk{display:flex;justify-content:space-between;align-items:flex-start;gap:16px;padding:18px 4px;border-bottom:1px solid var(--line)}
+.perk:last-child{border-bottom:0}
+.perk .pt b{display:block;font-size:18px;color:var(--wine-dark)}
+.perk .pt i{color:var(--muted);font-style:normal;font-size:15px}
+.perk .pv{white-space:nowrap;font-weight:900;color:var(--wine);font-size:17px;text-align:right}
+.perk .pv .inc{color:var(--green);font-size:14px;font-weight:800}
+.total-line{display:flex;justify-content:space-between;align-items:center;background:var(--rose-soft);border-radius:14px;padding:14px 18px;margin-top:14px;font-weight:800;color:var(--wine-dark)}
+.total-line span:last-child{font-size:22px}
+.promo{background:linear-gradient(135deg,#fff2f6,#f8e7ee);border:1px solid #edcad8}
+.promo .big{font-size:clamp(38px,7vw,68px);line-height:1;font-weight:900;color:var(--wine-dark);margin:8px 0 6px}
+.promo .time{font-weight:700;margin:0 0 18px}
+.promo-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.promo-card{background:#fff;border:1px solid #ead4dd;border-radius:18px;padding:20px}
+.promo-card .pc-t{font-weight:800;color:var(--wine-dark);font-size:17px}
+.promo-card .pc-v{font-size:26px;font-weight:900;color:var(--wine);margin-top:4px}
+.promo-card .small{margin-top:4px}
+.after{margin-top:18px;background:#fff;border:2px solid var(--wine);border-radius:18px;padding:20px;text-align:center}
+.after .a1{font-size:15px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.after .a2{font-size:16px;color:var(--muted);margin-top:6px}
+.after .a2 s{color:#b3a3ab}
+.after .a3{font-size:clamp(34px,6vw,52px);font-weight:900;color:var(--wine-dark);line-height:1.1}
+.after .a4{margin-top:8px;font-weight:700;color:var(--green)}
+.steps{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.step{padding:18px;border-radius:18px;background:#fbf4f7;border:1px solid var(--line)}
+.step .num{width:34px;height:34px;border-radius:50%;background:var(--wine);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:800;margin-bottom:10px}
+.small{font-size:13px;color:var(--muted)}
+.cond td{padding:12px 14px;border-bottom:1px solid var(--line);vertical-align:top}
+.cond tr:last-child td{border-bottom:0}
+.cond td:first-child{font-weight:800;color:var(--wine-dark);width:30%}
+.cond{width:100%;border-collapse:collapse}
+.cta{background:linear-gradient(135deg,var(--wine-dark),var(--wine));color:#fff;text-align:center}
+.cta h2{color:#fff}
+.cta .phone{font-size:clamp(28px,5vw,40px);font-weight:900;letter-spacing:.03em;margin:6px 0}
+.cta p{margin:6px 0;opacity:.94}
+.footer{text-align:center;color:var(--muted);font-size:13px;margin-top:22px}
+@media(max-width:760px){
+  .learn,.promo-grid,.steps{grid-template-columns:1fr}
+  .hero{padding:28px 22px}
+  .section{padding:20px}
+  .perk{flex-direction:column;gap:6px}
+  .perk .pv{text-align:left}
+}
+@media print{
+  body{background:#fff}
+  .page{width:100%;margin:0}
+  .topbar{display:none}
+  .hero,.section{box-shadow:none;break-inside:avoid}
+  .section{border:1px solid #d9d9d9}
+  @page{size:A4;margin:12mm}
+}
+</style>
+</head>
+<body>
+<div class="page">
+  <div class="topbar">
+    <div class="brand">LƯU NGÂN ACADEMY</div>
+    <button class="print-btn" onclick="window.print()">Xuất PDF / In</button>
+  </div>
+
+  <section class="hero">
+    <div class="eyebrow">Gói 02 · Đào tạo nghề Makeup</div>
+    <h1>Khoá CHUYÊN NGHIỆP</h1>
+    <p class="tagline">Trở thành Makeup Artist chuyên nghiệp — đào tạo makeup từ cơ bản đến nâng cao.</p>
+    <div class="hero-meta">
+      <div class="chip">Học phí <b>20.000.000đ</b></div>
+      <div class="chip">⏱ 03 tháng</div>
+      <div class="chip">Đóng 02 đợt — cách nhau 1 tháng</div>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>1. Bạn học được gì</h2>
+    <div class="learn">
+      <div><b>Makeup nền tảng từ số 0</b><br>Cầm tay chỉ việc, chưa biết gì vẫn theo được.</div>
+      <div><b>Makeup tiệc</b><br>Thành thạo các tông make tiệc đang được chuộng.</div>
+      <div><b>Makeup cô dâu</b><br>Nâng cao đến tận makeup cô dâu — ca nào cũng dám nhận.</div>
+      <div><b>Thực hành trên mẫu thật</b><br>Có ảnh thành phẩm làm vốn đăng bài ngay trong khoá.</div>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>2. Quyền lợi kèm gói học</h2>
+    <p class="lead">Không chỉ học — mỗi học viên tốt nghiệp mang theo sẵn bộ "đồ nghề" để ra nhận khách.</p>
+    <div class="perk">
+      <div class="pt">📷 <b>01 Bộ ảnh Profile cá nhân</b><i>Sử dụng xây dựng hình ảnh trên Facebook, TikTok, Zalo và hồ sơ nghề nghiệp.</i></div>
+      <div class="pv">Trị giá 1.500.000đ</div>
+    </div>
+    <div class="perk">
+      <div class="pt">💄 <b>03 Bộ ảnh Makeup thành phẩm</b><i>Xây dựng Portfolio — đăng bài — nhận khách.</i></div>
+      <div class="pv">Trị giá 3.000.000đ</div>
+    </div>
+    <div class="perk">
+      <div class="pt">📋 <b>Bộ quy trình &amp; tài liệu làm nghề</b><i>Quy trình makeup, chăm sóc khách hàng, biểu mẫu và tài liệu chuyên môn.</i></div>
+      <div class="pv"><span class="inc">✓ Kèm gói</span></div>
+    </div>
+    <div class="perk">
+      <div class="pt">🎓 <b>Hỗ trợ chuyên môn sau tốt nghiệp — 03 tháng</b><i>Hướng dẫn lại bài, giải đáp chuyên môn, góp ý bài làm, hỗ trợ xử lý tình huống thực tế.</i></div>
+      <div class="pv"><span class="inc">✓ Kèm gói</span></div>
+    </div>
+    <div class="total-line"><span>Tổng giá trị bộ ảnh kèm gói</span><span>4.500.000đ</span></div>
+  </section>
+
+  <section class="section promo">
+    <div class="eyebrow" style="color:var(--wine);opacity:1">Chương trình khuyến mãi khai giảng</div>
+    <h2 style="margin-top:6px">Đăng ký gói Chuyên nghiệp — nhận thêm</h2>
+    <div class="big">10.000.000đ</div>
+    <p class="time">⏰ Áp dụng từ <b>24/07/2026</b> đến hết <b>31/07/2026</b></p>
+    <div class="promo-grid">
+      <div class="promo-card">
+        <div class="pc-t">🎁 Tặng trọn chương trình TÓC CHUYÊN NGHIỆP</div>
+        <div class="pc-v">8.000.000đ</div>
+        <div class="small">30 buổi — tóc tiệc &amp; tóc cô dâu, giảng viên chuyên trách, học xen kẽ lộ trình makeup, không phát sinh thời gian học.</div>
+      </div>
+      <div class="promo-card">
+        <div class="pc-t">💸 Giảm ngay 10% học phí</div>
+        <div class="pc-v">2.000.000đ</div>
+        <div class="small">Trừ thẳng vào học phí khi đăng ký và đặt cọc trong thời gian chương trình.</div>
+      </div>
+    </div>
+    <div class="after">
+      <div class="a1">Học phí sau ưu đãi</div>
+      <div class="a2"><s>20.000.000đ</s></div>
+      <div class="a3">18.000.000đ</div>
+      <div class="a4">✓ Kèm trọn chương trình Tóc 30 buổi + bộ quyền lợi 4.500.000đ</div>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>3. Học phí &amp; cách đóng</h2>
+    <div class="steps">
+      <div class="step"><div class="num">1</div><b>Đợt 1 — khi nhập học</b><br><span class="small">Đóng phần đầu học phí, nhận lịch học ngay.</span></div>
+      <div class="step"><div class="num">2</div><b>Đợt 2 — sau 1 tháng</b><br><span class="small">Đóng phần còn lại khi đã vào guồng học.</span></div>
+    </div>
+    <p class="small" style="margin-top:12px">Mỗi khoá chỉ nhận 16 học viên (8 sáng · 8 chiều) — đủ người là đóng danh sách.</p>
+  </section>
+
+  <section class="section">
+    <h2>4. Điều kiện áp dụng ưu đãi</h2>
+    <table class="cond">
+      <tr><td>Thời gian</td><td>Từ 24/07/2026 đến hết 31/07/2026.</td></tr>
+      <tr><td>Điều kiện</td><td>Đăng ký và đặt cọc trong thời gian diễn ra chương trình.</td></tr>
+      <tr><td>Kết hợp ưu đãi</td><td>Không áp dụng đồng thời với chương trình khuyến mãi khác.</td></tr>
+      <tr><td>Sau chương trình</td><td>Ưu đãi có thể điều chỉnh hoặc kết thúc sau thời gian công bố.</td></tr>
+    </table>
+  </section>
+
+  <section class="section cta">
+    <h2>Giữ chỗ ngay hôm nay</h2>
+    <p>Inbox fanpage hoặc gọi/Zalo để được tư vấn lộ trình phù hợp:</p>
+    <div class="phone">☎ 0975 778 874</div>
+    <p>Zalo: 0983 274 1123 · Fanpage: Lưu Ngân Make Up &amp; Bridal Pleiku</p>
+    <p>CS1: 22 Wừu · CS2: 77A Thống Nhất — P. Diên Hồng, Gia Lai</p>
+  </section>
+
+  <div class="footer">Lưu Ngân Academy — Giảng viên trực tiếp: Thanh Thanh</div>
+</div>
+</body>
+</html>
