@@ -1,0 +1,483 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Đề xuất 3 gói đào tạo - Lưu Ngân Academy</title>
+<style>
+:root{
+  --wine:#7d2f50;
+  --wine-dark:#5d203b;
+  --rose:#b66a83;
+  --rose-soft:#faf1f5;
+  --ink:#2d2530;
+  --muted:#716873;
+  --line:#eadde3;
+  --white:#ffffff;
+  --green:#247a52;
+  --shadow:0 14px 38px rgba(84,39,57,.10);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  background:linear-gradient(180deg,#fbf8fa 0,#f3eef1 100%);
+  color:var(--ink);
+  font-family:"Segoe UI","Be Vietnam Pro",Arial,sans-serif;
+  line-height:1.6;
+}
+.page{
+  width:min(1180px,calc(100% - 28px));
+  margin:28px auto 70px;
+}
+.topbar{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:14px;
+  margin-bottom:16px;
+}
+.brand{
+  font-weight:800;
+  letter-spacing:.08em;
+  color:var(--wine);
+}
+.print-btn{
+  border:0;
+  border-radius:999px;
+  padding:11px 18px;
+  background:var(--wine);
+  color:#fff;
+  font-weight:700;
+  cursor:pointer;
+  box-shadow:var(--shadow);
+}
+.hero{
+  background:linear-gradient(135deg,var(--wine-dark),var(--wine) 58%,#a85e79);
+  color:#fff;
+  border-radius:26px;
+  padding:38px 40px;
+  box-shadow:var(--shadow);
+}
+.eyebrow{
+  font-size:13px;
+  letter-spacing:.13em;
+  text-transform:uppercase;
+  opacity:.86;
+  font-weight:700;
+}
+.hero h1{
+  font-size:clamp(30px,4.8vw,56px);
+  line-height:1.08;
+  margin:10px 0 12px;
+  max-width:920px;
+}
+.hero p{
+  max-width:830px;
+  margin:0;
+  font-size:18px;
+  opacity:.94;
+}
+.section{
+  background:#fff;
+  border:1px solid rgba(123,47,79,.08);
+  border-radius:22px;
+  padding:28px;
+  margin-top:22px;
+  box-shadow:var(--shadow);
+}
+.section h2{
+  margin:0 0 16px;
+  color:var(--wine-dark);
+  font-size:28px;
+  line-height:1.25;
+}
+.section h3{
+  color:var(--wine);
+  margin-top:0;
+}
+.lead{
+  color:var(--muted);
+  margin-top:-4px;
+}
+.table-wrap{
+  overflow-x:auto;
+  border-radius:18px;
+  border:1px solid var(--line);
+  background:#fff;
+}
+table{
+  width:100%;
+  border-collapse:separate;
+  border-spacing:0;
+  table-layout:fixed;
+  min-width:900px;
+}
+col.label{width:28%}
+col.pkg{width:24%}
+thead th{
+  background:var(--wine);
+  color:#fff;
+  text-align:center;
+  padding:16px 12px;
+  font-size:15px;
+  font-weight:800;
+  vertical-align:middle;
+  border-right:1px solid rgba(255,255,255,.18);
+}
+thead th:first-child{
+  text-align:left;
+  padding-left:18px;
+}
+thead th:last-child{border-right:0}
+tbody td{
+  padding:15px 14px;
+  border-bottom:1px solid var(--line);
+  border-right:1px solid var(--line);
+  vertical-align:middle;
+  word-break:normal;
+  overflow-wrap:break-word;
+}
+tbody td:last-child{border-right:0}
+tbody tr:last-child td{border-bottom:0}
+tbody tr:nth-child(even) td{background:#fcf8fa}
+tbody td:first-child{
+  font-weight:800;
+  color:var(--wine-dark);
+  background:#fffdfd;
+  text-align:left;
+}
+.center{text-align:center}
+.money{
+  text-align:center;
+  font-variant-numeric:tabular-nums;
+  white-space:nowrap;
+}
+.check{color:var(--green);font-weight:900}
+.dash{color:#aaa}
+.cards{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:16px;
+}
+.card{
+  border:1px solid var(--line);
+  border-radius:20px;
+  padding:22px;
+  background:linear-gradient(180deg,#fff,#fffafd);
+}
+.card.featured{
+  border:2px solid var(--wine);
+  transform:translateY(-3px);
+  box-shadow:0 16px 35px rgba(123,47,79,.14);
+}
+.card .tag{
+  display:inline-block;
+  background:var(--rose-soft);
+  color:var(--wine);
+  border-radius:999px;
+  padding:6px 10px;
+  font-size:12px;
+  font-weight:800;
+  margin-bottom:12px;
+}
+.card h3{font-size:22px;margin-bottom:6px}
+.card .price{
+  font-size:30px;
+  font-weight:900;
+  color:var(--wine-dark);
+  margin:8px 0;
+}
+.card ul{padding-left:18px;margin-bottom:0}
+.card li{margin:7px 0}
+.timeline{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:14px;
+}
+.step{
+  padding:18px;
+  border-radius:18px;
+  background:#fbf4f7;
+  border:1px solid var(--line);
+}
+.step .num{
+  width:34px;height:34px;border-radius:50%;
+  background:var(--wine);color:#fff;
+  display:flex;align-items:center;justify-content:center;
+  font-weight:800;margin-bottom:10px;
+}
+.promo{
+  background:linear-gradient(135deg,#fff2f6,#f8e7ee);
+  border:1px solid #edcad8;
+}
+.promo .big{
+  font-size:clamp(40px,7vw,76px);
+  line-height:1;
+  font-weight:900;
+  color:var(--wine-dark);
+  margin:8px 0 14px;
+}
+.promo-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:16px;
+  margin-top:20px;
+}
+.promo-card{
+  background:#fff;
+  border:1px solid #ead4dd;
+  border-radius:18px;
+  padding:20px;
+  text-align:center;
+}
+.promo-card strong{
+  display:block;
+  font-size:26px;
+  color:var(--wine-dark);
+  margin-top:4px;
+}
+.info-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:16px;
+}
+.info{
+  border:1px solid var(--line);
+  border-radius:16px;
+  padding:18px;
+  background:#fff;
+}
+.info b{color:var(--wine-dark)}
+.small{font-size:13px;color:var(--muted)}
+.highlight-row td{background:#fff3f7 !important;font-weight:800}
+.footer{
+  text-align:center;
+  color:var(--muted);
+  font-size:13px;
+  margin-top:22px;
+}
+@media(max-width:900px){
+  .cards,.timeline,.promo-grid,.info-grid{grid-template-columns:1fr}
+  .hero{padding:28px 22px}
+  .section{padding:20px}
+  .topbar{align-items:flex-start}
+}
+@media print{
+  body{background:#fff}
+  .page{width:100%;margin:0}
+  .topbar{display:none}
+  .hero,.section{box-shadow:none;break-inside:avoid}
+  .section{border:1px solid #d9d9d9}
+  table{min-width:0}
+  @page{size:A4;margin:12mm}
+}
+</style>
+</head>
+<body>
+<div class="page">
+  <div class="topbar">
+    <div class="brand">LƯU NGÂN ACADEMY</div>
+    <button class="print-btn" onclick="window.print()">Xuất PDF / In</button>
+  </div>
+
+  <section class="hero">
+    <div class="eyebrow">Tài liệu đề xuất nội bộ</div>
+    <h1>Ba gói đào tạo Makeup & chương trình khuyến mãi khai giảng</h1>
+    <p>Tổng hợp cấu trúc gói học, quyền lợi chi tiết, chương trình phát triển nghề và chính sách ưu đãi để Ngân xem, góp ý và chốt phương án triển khai.</p>
+  </section>
+
+  <section class="section">
+    <h2>1. Bảng so sánh 3 gói đào tạo</h2>
+    <p class="lead">Cột nội dung được cố định riêng để toàn bộ bảng thẳng hàng và dễ đọc trên cả máy tính lẫn khi xuất PDF.</p>
+    <div class="table-wrap">
+      <table>
+        <colgroup>
+          <col class="label">
+          <col class="pkg">
+          <col class="pkg">
+          <col class="pkg">
+        </colgroup>
+        <thead>
+          <tr>
+            <th>Nội dung</th>
+            <th>Cơ bản</th>
+            <th>Chuyên nghiệp</th>
+            <th>Phát triển</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Học phí</td><td class="money">12.000.000đ</td><td class="money">20.000.000đ</td><td class="money">25.000.000đ</td></tr>
+          <tr><td>Thời gian học</td><td class="center">01 tháng</td><td class="center">03 tháng</td><td class="center">03 tháng</td></tr>
+          <tr><td>Thanh toán</td><td class="center">01 lần</td><td class="center">02 đợt</td><td class="center">02 đợt</td></tr>
+          <tr><td>Định hướng</td><td>Bắt đầu với nghề Makeup</td><td>Trở thành Makeup Artist chuyên nghiệp</td><td>Phát triển sự nghiệp Makeup bền vững</td></tr>
+          <tr><td>Bộ ảnh Profile cá nhân</td><td class="center">01 bộ</td><td class="center">01 bộ</td><td class="center">01 bộ</td></tr>
+          <tr><td>Bộ ảnh Makeup thành phẩm</td><td class="center">01 bộ</td><td class="center">03 bộ</td><td class="center">05 bộ</td></tr>
+          <tr><td>Bộ 03 video xây dựng thương hiệu cá nhân</td><td class="center dash">—</td><td class="center dash">—</td><td class="center check">✓</td></tr>
+          <tr><td>Chương trình phát triển nghề Makeup (06 buổi)</td><td class="center dash">—</td><td class="center dash">—</td><td class="center check">✓</td></tr>
+          <tr><td>Bộ quy trình & tài liệu làm nghề</td><td class="center dash">—</td><td class="center check">✓</td><td class="center check">✓</td></tr>
+          <tr><td>Hỗ trợ chuyên môn sau tốt nghiệp</td><td class="center">01 tháng</td><td class="center">03 tháng</td><td class="center">06 tháng</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>2. Chi tiết từng gói đào tạo</h2>
+    <div class="cards">
+      <article class="card">
+        <span class="tag">Gói 01</span>
+        <h3>Cơ bản</h3>
+        <div class="price">12.000.000đ</div>
+        <ul>
+          <li>Phù hợp người mới bắt đầu.</li>
+          <li>01 bộ ảnh Profile cá nhân.</li>
+          <li>01 bộ ảnh Makeup thành phẩm.</li>
+          <li>Hỗ trợ chuyên môn sau tốt nghiệp trong 01 tháng.</li>
+        </ul>
+      </article>
+      <article class="card">
+        <span class="tag">Gói 02</span>
+        <h3>Chuyên nghiệp</h3>
+        <div class="price">20.000.000đ</div>
+        <ul>
+          <li>Định hướng làm nghề chuyên nghiệp.</li>
+          <li>01 bộ ảnh Profile cá nhân.</li>
+          <li>03 bộ ảnh Makeup thành phẩm.</li>
+          <li>Bộ quy trình & tài liệu làm nghề.</li>
+          <li>Hỗ trợ chuyên môn trong 03 tháng.</li>
+        </ul>
+      </article>
+      <article class="card featured">
+        <span class="tag">Gói trọng tâm</span>
+        <h3>Phát triển</h3>
+        <div class="price">25.000.000đ</div>
+        <ul>
+          <li>Phát triển sự nghiệp Makeup bền vững.</li>
+          <li>01 bộ ảnh Profile cá nhân.</li>
+          <li>05 bộ ảnh Makeup thành phẩm.</li>
+          <li>Bộ 03 video xây dựng thương hiệu cá nhân.</li>
+          <li>Chương trình phát triển nghề Makeup 06 buổi.</li>
+          <li>Bộ quy trình & tài liệu làm nghề.</li>
+          <li>Hỗ trợ chuyên môn trong 06 tháng.</li>
+        </ul>
+      </article>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>3. Chi tiết các quyền lợi</h2>
+    <div class="info-grid">
+      <div class="info"><b>Bộ ảnh Profile cá nhân</b><br>Ảnh chân dung phục vụ xây dựng hình ảnh cá nhân trên Facebook, TikTok, Zalo và hồ sơ nghề nghiệp.</div>
+      <div class="info"><b>Bộ ảnh Makeup thành phẩm</b><br>Ảnh chuyên nghiệp dùng để xây dựng Portfolio, đăng bài và nhận khách.</div>
+      <div class="info"><b>Bộ 03 video thương hiệu cá nhân</b><br>Gồm video giới thiệu bản thân, video quá trình Makeup và video thành phẩm.</div>
+      <div class="info"><b>Bộ quy trình & tài liệu làm nghề</b><br>Bao gồm quy trình Makeup, chăm sóc khách hàng, biểu mẫu và tài liệu chuyên môn.</div>
+      <div class="info"><b>Hỗ trợ chuyên môn sau tốt nghiệp</b><br>Hướng dẫn lại bài, giải đáp chuyên môn, góp ý bài làm và hỗ trợ xử lý tình huống thực tế.</div>
+      <div class="info"><b>Giảng viên chuyên trách</b><br>Chương trình Makeup và chương trình Tóc được triển khai bởi giảng viên phụ trách đúng chuyên môn.</div>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>4. Chương trình phát triển nghề Makeup — 06 buổi</h2>
+    <div class="timeline">
+      <div class="step"><div class="num">1</div><b>Xây dựng thương hiệu cá nhân</b><br><span class="small">Xác định hình ảnh, điểm mạnh và cách xuất hiện nhất quán.</span></div>
+      <div class="step"><div class="num">2</div><b>Nội dung Facebook & TikTok</b><br><span class="small">Xây dựng nội dung phù hợp để thu hút và tạo niềm tin.</span></div>
+      <div class="step"><div class="num">3</div><b>Tư vấn — báo giá — chốt lịch</b><br><span class="small">Chuẩn hóa quy trình tiếp nhận, tư vấn và chăm sóc khách hàng.</span></div>
+      <div class="step"><div class="num">4</div><b>Định giá dịch vụ</b><br><span class="small">Xây dựng mức giá hợp lý theo tay nghề, chi phí và thị trường.</span></div>
+      <div class="step"><div class="num">5</div><b>Xử lý tình huống thực tế</b><br><span class="small">Ứng xử với khách, lỗi dịch vụ và các tình huống phát sinh.</span></div>
+      <div class="step"><div class="num">6</div><b>Định hướng phát triển nghề nghiệp</b><br><span class="small">Lập kế hoạch phát triển sau tốt nghiệp theo từng giai đoạn.</span></div>
+    </div>
+  </section>
+
+  <section class="section promo">
+    <div class="eyebrow" style="color:var(--wine);opacity:1">Chương trình khuyến mãi khai giảng</div>
+    <h2 style="margin-top:6px">Đăng ký trong tháng 7 — nhận ưu đãi lên đến</h2>
+    <div class="big">10.500.000đ</div>
+    <p><b>Thời gian áp dụng:</b> từ 24/07/2026 đến hết 31/07/2026.</p>
+    <div class="promo-grid">
+      <div class="promo-card">Cơ bản<strong>4.100.000đ</strong><span class="small">Tổng giá trị nhận thêm</span></div>
+      <div class="promo-card">Chuyên nghiệp<strong>10.000.000đ</strong><span class="small">Tổng giá trị nhận thêm</span></div>
+      <div class="promo-card">Phát triển<strong>10.500.000đ</strong><span class="small">Tổng giá trị nhận thêm</span></div>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>5. Bảng tổng giá trị ưu đãi</h2>
+    <div class="table-wrap">
+      <table>
+        <colgroup>
+          <col class="label"><col class="pkg"><col class="pkg"><col class="pkg">
+        </colgroup>
+        <thead>
+          <tr><th>Gói đào tạo</th><th>Giảm học phí 10%</th><th>Giá trị chương trình Tóc</th><th>Tổng giá trị nhận thêm</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Cơ bản</td><td class="money">1.200.000đ</td><td class="money">2.900.000đ</td><td class="money"><b>4.100.000đ</b></td></tr>
+          <tr><td>Chuyên nghiệp</td><td class="money">2.000.000đ</td><td class="money">8.000.000đ</td><td class="money"><b>10.000.000đ</b></td></tr>
+          <tr class="highlight-row"><td>Phát triển</td><td class="money">2.500.000đ</td><td class="money">8.000.000đ</td><td class="money">10.500.000đ</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>6. Bảng học phí sau giảm</h2>
+    <div class="table-wrap">
+      <table>
+        <colgroup>
+          <col class="label"><col class="pkg"><col class="pkg"><col class="pkg">
+        </colgroup>
+        <thead>
+          <tr><th>Gói đào tạo</th><th>Học phí niêm yết</th><th>Mức giảm 10%</th><th>Học phí sau ưu đãi</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Cơ bản</td><td class="money">12.000.000đ</td><td class="money">1.200.000đ</td><td class="money"><b>10.800.000đ</b></td></tr>
+          <tr><td>Chuyên nghiệp</td><td class="money">20.000.000đ</td><td class="money">2.000.000đ</td><td class="money"><b>18.000.000đ</b></td></tr>
+          <tr class="highlight-row"><td>Phát triển</td><td class="money">25.000.000đ</td><td class="money">2.500.000đ</td><td class="money">22.500.000đ</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>7. Bảng chương trình Tóc được miễn học phí</h2>
+    <div class="table-wrap">
+      <table>
+        <colgroup>
+          <col class="label"><col class="pkg"><col class="pkg"><col class="pkg">
+        </colgroup>
+        <thead>
+          <tr><th>Gói đào tạo</th><th>Chương trình Tóc</th><th>Số buổi</th><th>Giá trị</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Cơ bản</td><td class="center">Tóc cơ bản</td><td class="center">10 buổi</td><td class="money"><b>2.900.000đ</b></td></tr>
+          <tr><td>Chuyên nghiệp</td><td class="center">Tóc chuyên nghiệp</td><td class="center">30 buổi</td><td class="money"><b>8.000.000đ</b></td></tr>
+          <tr><td>Phát triển</td><td class="center">Tóc chuyên nghiệp</td><td class="center">30 buổi</td><td class="money"><b>8.000.000đ</b></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="small" style="margin-top:12px">Chương trình Tóc do giảng viên chuyên trách giảng dạy, được bố trí xen kẽ trong lộ trình Makeup và không phát sinh thêm thời gian học.</p>
+  </section>
+
+  <section class="section">
+    <h2>8. Điều kiện áp dụng chương trình khuyến mãi</h2>
+    <div class="table-wrap">
+      <table>
+        <colgroup>
+          <col style="width:28%"><col style="width:72%">
+        </colgroup>
+        <thead><tr><th>Nội dung</th><th>Quy định</th></tr></thead>
+        <tbody>
+          <tr><td>Thời gian</td><td>Áp dụng từ 24/07/2026 đến hết 31/07/2026.</td></tr>
+          <tr><td>Điều kiện nhận ưu đãi</td><td>Học viên đăng ký và đặt cọc trong thời gian diễn ra chương trình.</td></tr>
+          <tr><td>Kết hợp ưu đãi</td><td>Không áp dụng đồng thời với chương trình khuyến mãi khác.</td></tr>
+          <tr><td>Sau thời gian áp dụng</td><td>Chương trình có thể được điều chỉnh hoặc kết thúc sau thời gian công bố.</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <div class="footer">Tài liệu đề xuất nội bộ — Lưu Ngân Academy</div>
+</div>
+</body>
+</html>
