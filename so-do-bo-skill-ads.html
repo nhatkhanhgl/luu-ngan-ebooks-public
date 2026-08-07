@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sơ đồ hoạt động — Bộ skill chạy Ads</title>
+<style>
+  :root{
+    --bg:#faf7f4; --card:#fff; --ink:#1c1a18; --dim:#6b635c; --line:#e6ded6;
+    --accent:#a8763e; --accent-soft:#f4ece2;
+    --warn:#b4451f; --warn-soft:#fdf0eb;
+    --ok:#3f7d55; --ok-soft:#edf5ef;
+    --human:#2f6690; --human-soft:#e9f1f7;
+  }
+  @media (prefers-color-scheme: dark){
+    :root{
+      --bg:#15130f; --card:#1f1c18; --ink:#f0e9e1; --dim:#a89e93; --line:#332e28;
+      --accent:#d8a86a; --accent-soft:#2a2118;
+      --warn:#e88b64; --warn-soft:#2e1c14;
+      --ok:#7fc094; --ok-soft:#17251b;
+      --human:#7fb3d9; --human-soft:#16232e;
+    }
+  }
+  :root[data-theme="dark"]{
+    --bg:#15130f; --card:#1f1c18; --ink:#f0e9e1; --dim:#a89e93; --line:#332e28;
+    --accent:#d8a86a; --accent-soft:#2a2118; --warn:#e88b64; --warn-soft:#2e1c14;
+    --ok:#7fc094; --ok-soft:#17251b; --human:#7fb3d9; --human-soft:#16232e;
+  }
+  :root[data-theme="light"]{
+    --bg:#faf7f4; --card:#fff; --ink:#1c1a18; --dim:#6b635c; --line:#e6ded6;
+    --accent:#a8763e; --accent-soft:#f4ece2; --warn:#b4451f; --warn-soft:#fdf0eb;
+    --ok:#3f7d55; --ok-soft:#edf5ef; --human:#2f6690; --human-soft:#e9f1f7;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;padding:0 16px 56px;background:var(--bg);color:var(--ink);
+    font:16px/1.6 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+    -webkit-text-size-adjust:100%}
+  .wrap{max-width:640px;margin:0 auto}
+  header{padding:32px 0 20px}
+  h1{margin:0 0 6px;font-size:24px;letter-spacing:-.02em}
+  .sub{color:var(--dim);font-size:14px;margin:0}
+
+  /* khối giai đoạn */
+  .stage{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--accent);
+    border-radius:10px;padding:14px 16px}
+  .stage .no{display:inline-flex;align-items:center;justify-content:center;
+    width:24px;height:24px;border-radius:50%;background:var(--accent);color:#fff;
+    font-size:13px;font-weight:700;margin-right:8px;flex:none}
+  .stage h2{margin:0 0 3px;font-size:17px;display:flex;align-items:center}
+  .stage .q{color:var(--dim);font-size:13.5px;font-style:italic;margin:0 0 12px 32px}
+  .skills{margin:0;padding:0;list-style:none}
+  .skills li{padding:7px 0;border-top:1px dashed var(--line);font-size:14px;
+    display:flex;gap:10px;align-items:baseline}
+  .skills li:first-child{border-top:0}
+  .skills code{background:var(--accent-soft);color:var(--accent);padding:1px 6px;border-radius:5px;
+    font-family:ui-monospace,Menlo,monospace;font-size:12px;white-space:nowrap;flex:none}
+  .skills .d{color:var(--dim);font-size:13.5px}
+
+  /* mũi tên */
+  .arrow{text-align:center;color:var(--accent);font-size:20px;line-height:1;padding:8px 0}
+  .arrow span{display:block;font-size:11.5px;color:var(--dim);font-style:italic;margin-top:2px}
+
+  /* 12 chiêu */
+  .chieu{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:6px 16px 14px}
+  .ch-nhom{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;
+    color:var(--human);margin:16px 0 6px;padding-bottom:5px;border-bottom:1px solid var(--line)}
+  .ch-list{margin:0;padding-left:22px}
+  .ch-list li{font-size:14px;padding:6px 0;color:var(--dim)}
+  .ch-list li b{color:var(--ink)}
+  .ch-list li::marker{color:var(--accent);font-weight:700}
+
+  /* vòng lặp */
+  .loop{background:var(--ok-soft);border:1px solid var(--ok);border-radius:10px;
+    padding:12px 16px;text-align:center;font-size:14px}
+  .loop b{color:var(--ok)}
+
+  /* bên lề */
+  .side{background:var(--warn-soft);border-left:3px solid var(--warn);border-radius:0 10px 10px 0;
+    padding:12px 14px;margin:10px 0;font-size:14px}
+  .side b{color:var(--warn)}
+  .side code{background:transparent;color:var(--warn);font-family:ui-monospace,Menlo,monospace;
+    font-size:12.5px;font-weight:600}
+
+  h3{font-size:16px;margin:30px 0 10px;padding-bottom:6px;border-bottom:1px solid var(--line)}
+  .legend{font-size:13.5px;color:var(--dim);margin:6px 0}
+  .dot{display:inline-block;width:9px;height:9px;border-radius:50%;margin-right:6px}
+  footer{margin-top:32px;padding-top:16px;border-top:1px solid var(--line);
+    color:var(--dim);font-size:13px}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <h1>Bộ skill chạy Ads hoạt động thế nào</h1>
+  <p class="sub">14 skill · đọc từ trên xuống · mỗi ô là một câu hỏi cần trả lời trước khi đi tiếp</p>
+</header>
+
+<div class="stage">
+  <h2><span class="no">1</span>Đặt nền</h2>
+  <p class="q">Được phép tiêu bao nhiêu tiền cho một khách?</p>
+  <ul class="skills">
+    <li><code>muc-tieu-tai-chinh</code><span class="d">Tính ngược từ lãi gộp ra chi phí tối đa mỗi khách</span></li>
+    <li><code>dinh-gia-offer</code><span class="d">Chốt offer: bán gì, giá bao nhiêu, vì sao mua ngay</span></li>
+    <li><code>ke-hoach-pheu</code><span class="d">Chia tiền tháng cho khách lạnh / ấm / nóng</span></li>
+    <li><code>ads-tep-khach</code><span class="d">Data khách cũ thành tệp giống trên Meta</span></li>
+  </ul>
+</div>
+
+<div class="arrow">↓<span>có số rồi mới được viết bài</span></div>
+
+<div class="stage">
+  <h2><span class="no">2</span>Làm nội dung</h2>
+  <p class="q">Nói gì để khách dừng lại và nhắn tin?</p>
+  <ul class="skills">
+    <li><code>fb-ads-research</code><span class="d">Đối thủ đang chạy quảng cáo gì</span></li>
+    <li><code>chan-dung-dau-suong</code><span class="d">Khách đau chỗ nào, muốn gì</span></li>
+    <li><code>ads-copy</code><span class="d">Viết nhiều góc độ khác nhau để test</span></li>
+    <li><code>ads-policy</code><span class="d">Soi trước xem Meta có từ chối không</span></li>
+    <li><code>ads-creative-check</code><span class="d">Chấm video trước khi đổ tiền</span></li>
+  </ul>
+</div>
+
+<div class="arrow">↓<span>có bài rồi mới dựng khung</span></div>
+
+<div class="stage">
+  <h2><span class="no">3</span>Dựng khung</h2>
+  <p class="q">Chia mấy nhóm, ngân sách đặt ở đâu, đặt tên thế nào?</p>
+  <ul class="skills">
+    <li><code>ads-cau-truc-chien-dich</code><span class="d">Số nhóm, cấp ngân sách, cách nới, quy ước đặt tên</span></li>
+    <li><code>ads-playbook</code><span class="d">12 chiêu áp xuyên suốt, không phải một bước riêng</span></li>
+  </ul>
+</div>
+
+<div class="arrow">↓<span>bật chạy, để yên 3–4 ngày, không sửa</span></div>
+
+<div class="stage">
+  <h2><span class="no">4</span>Đo và quyết</h2>
+  <p class="q">Cái nào lãi, cái nào lỗ, tắt hay tăng tiền?</p>
+  <ul class="skills">
+    <li><code>ads-do-luong</code><span class="d">Chấm theo ngưỡng → tắt / giữ / nới ngân sách</span></li>
+  </ul>
+</div>
+
+<div class="arrow">↓</div>
+
+<div class="loop">
+  <b>↺ Quay lại bước 2</b><br>
+  Bài mỏi thì thay bài mới. Cả loạt cùng thất bại thì <b>sửa offer ở bước 1</b>, đừng vội đổi ảnh.
+</div>
+
+<h3>12 chiêu áp xuyên suốt</h3>
+<p class="legend">Không phải một bước riêng — chúng nằm rải trong cả 4 bước trên. Đây là thứ tách người
+chạy quảng cáo có nghề khỏi người tự mò.</p>
+
+<div class="chieu">
+  <div class="ch-nhom">Tận dụng data khách cũ — thứ đa số shop không có</div>
+  <ol class="ch-list">
+    <li><b>Tệp giống từ khách đã chốt.</b> Đưa danh sách khách đã mua lên Meta, bảo nó tìm người
+      giống thế. Tệp chất nhất trong mọi loại tệp.</li>
+    <li><b>Loại trừ khách cũ.</b> Đừng trả tiền hiện quảng cáo tìm-khách-mới cho người đã là khách.</li>
+    <li><b>Nhắm lại khách ấm.</b> Người đã nhắn tin, đã xem video quá nửa, đã tương tác mà chưa đặt —
+      gom thành tệp riêng. Chốt rẻ hơn khách lạnh nhiều lần. Không cần website.</li>
+  </ol>
+
+  <div class="ch-nhom">Khi lên chiến dịch</div>
+  <ol class="ch-list" start="4">
+    <li><b>Nhắm rộng, để nội dung tự lọc khách.</b> Nhắm siêu hẹp làm nghẹt thuật toán.
+      Chỉ giới hạn khu vực và độ tuổi, còn lại để hook quyết định ai dừng xem.</li>
+    <li><b>Chạy đúng giờ có người trả lời.</b> Tin nhắn đổ về lúc 2 giờ sáng mà không ai rep là tiền vứt đi.
+      Hẹn giờ chạy khớp giờ trực.</li>
+    <li><b>Gắn mã nguồn vào quảng cáo.</b> Để sau này biết khách đến từ chiến dịch nào, không phải đoán.</li>
+  </ol>
+
+  <div class="ch-nhom">Khi làm nội dung</div>
+  <ol class="ch-list" start="7">
+    <li><b>Offer mạnh thắng ảnh đẹp.</b> Một lời chào hàng mạnh trên ảnh tầm thường ăn đứt lời chào hàng
+      yếu trên ảnh lung linh. Chốt offer trước, lo hình sau.</li>
+    <li><b>Test bằng bài ẩn, scale bằng bài có bằng chứng.</b> Lúc dò thì mỗi góc độ một bài ẩn riêng cho sạch.
+      Tìm ra bài thắng rồi gom mọi nhóm về <b>cùng một bài</b> — like và bình luận dồn một chỗ,
+      bằng chứng xã hội mạnh hơn và tiếp cận rẻ hơn.</li>
+    <li><b>Hâm nóng bài trước khi chạy tiền.</b> Chạy một đợt tương tác rẻ cho bài thắng có sẵn like đã,
+      rồi mới chạy đợt ra đơn trên chính bài đó.</li>
+  </ol>
+
+  <div class="ch-nhom">Khi đo và quyết</div>
+  <ol class="ch-list" start="10">
+    <li><b>Không đánh giá non.</b> Tối thiểu 3–4 ngày và đủ số kết quả mới được kết luận.
+      Ngoại lệ được tắt sớm: tiêu gấp đôi mức mục tiêu mà không ra khách nào sau 2 ngày.</li>
+    <li><b>Đọc tỷ lệ giữ 3 giây để biết hỏng ở đâu.</b> Ít người xem quá 3 giây thì lỗi ở hook — sửa 3 giây đầu.
+      Nhiều người xem mà vẫn không ra khách thì lỗi ở phần thân hoặc ở offer. Sửa đúng chỗ, đừng đập cả video.</li>
+    <li><b>Cả loạt cùng thất bại thì sửa offer trước.</b> Đừng vội đổi ảnh — hệ quả trực tiếp của chiêu số 7.</li>
+  </ol>
+</div>
+
+<h3>Hai skill nằm ngoài dòng chảy</h3>
+
+<div class="side">
+  <b>⚠ Khi có sự cố</b> — <code>ads-cuu-tai-khoan</code><br>
+  Ad bị từ chối hoặc tài khoản bị khoá thì gọi bất kỳ lúc nào. Ngành làm đẹp bị Meta soi gắt,
+  đây là thứ dùng tới sớm hơn bạn nghĩ.
+</div>
+
+<div class="side" style="border-left-color:var(--accent);background:var(--accent-soft)">
+  <b style="color:var(--accent)">▶ Muốn chạy hết một lượt</b> — <code style="color:var(--accent)">ads-full</code><br>
+  Nhạc trưởng: gõ một câu, nó tự gọi bước 1 → 2 → 3 theo đúng thứ tự.
+  Dùng khi đã quen, còn lúc đầu nên đi từng bước cho hiểu.
+</div>
+
+<h3>Ba điều dễ làm sai nhất</h3>
+
+<div class="side">
+  <b>1. Nhảy thẳng vào bước 2.</b> Viết bài trước khi biết được phép tiêu bao nhiêu một khách.
+  Bài hay mà chi 300 nghìn để lấy một khách chỉ lãi 200 nghìn thì càng chạy càng lỗ.
+</div>
+
+<div class="side">
+  <b>2. Chia quá nhiều nhóm.</b> Mỗi nhóm cần khoảng 50 kết quả trong 7 ngày thuật toán mới học xong.
+  Ít tiền mà chia ba nhóm là cả ba cùng kẹt.
+</div>
+
+<div class="side">
+  <b>3. Sốt ruột sửa giữa chừng.</b> Đổi nhắm khách, đổi ảnh, thêm bài mới vào nhóm đang chạy —
+  đều làm thuật toán học lại từ đầu. Cần sửa thì gom sửa một lần.
+</div>
+
+<h3>Chú thích</h3>
+<p class="legend"><span class="dot" style="background:var(--accent)"></span>Bước trong dòng chảy chính, đi theo thứ tự</p>
+<p class="legend"><span class="dot" style="background:var(--human)"></span>12 chiêu — áp xuyên suốt, không theo thứ tự</p>
+<p class="legend"><span class="dot" style="background:var(--warn)"></span>Gọi khi cần</p>
+
+<footer>
+  Tám skill ở bước 2 và 3 chạy được ngay không cần kết nối gì. Sáu skill còn lại cần số liệu doanh nghiệp —
+  xem <b>CAU-HINH-KET-NOI.md</b>.<br><br>
+  Mọi số cứng trong bộ này trích từ tài liệu chính thức của Meta, có ghi mã bài để tra lại.
+</footer>
+
+</div>
+</body>
+</html>
